@@ -1,0 +1,1069 @@
+@import url(nullstyle.css);
+@font-face {
+	font-family: "ArialRegular";
+	src: url(../../fonts/ArialRegular.ttf);
+}
+@font-face {
+	font-family: "GeorgiaRegular";
+	src: url(../../fonts/GeorgiaRegular.ttf);
+}
+
+html {
+	scroll-behavior: smooth;
+	box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+$padding_about-how-you: 80px 40px 100px 40px;
+
+.start-screen .header__item-link.active {
+	color: #fafafa;
+	border-bottom: 3px solid #f1cdb3;
+}
+
+body.active {
+	overflow: hidden;
+}
+
+.wrapper {
+	margin: 0 auto;
+	max-width: 1280px;
+}
+
+.start-screen {
+	background: radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #211f20 100%), linear-gradient(0deg, #1a1819, #1b1a1a);
+	&__container {
+		display: flex;
+		flex-direction: column;
+	}
+	.header {
+		height: 60px;
+		margin: 60px 40px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-family: "ArialRegular";
+		font-style: normal;
+		font-weight: 400;
+		&__logo-link {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+		&__title {
+			font-family: "GeorgiaRegular";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 32px;
+			line-height: 110%;
+			letter-spacing: 0.06em;
+			color: #f1cdb3;
+		}
+		&__subtitle {
+			font-size: 13px;
+			line-height: 115%;
+			letter-spacing: 0.1em;
+			text-indent: 2%;
+			color: #ffffff;
+		}
+		&__nav-menu {
+			display: block;
+		}
+		&__list {
+			display: flex;
+			margin-bottom: 3px;
+			gap: 36px;
+		}
+		&__item-link {
+			font-size: 15px;
+			line-height: 160%;
+			color: #cdcdcd;
+			padding: 3px 0;
+			transition-duration: 0.3s;
+			&:hover,
+			&:focus {
+				color: #fafafa;
+			}
+		}
+		&__menu {
+			display: none;
+			flex-direction: column;
+			gap: 10px;
+			cursor: pointer;
+			&:hover,
+			&:focus {
+				.menu-item {
+					filter: opacity(0.6);
+				}
+			}
+			.menu-item {
+				width: 30px;
+				height: 2px;
+				background-color: #f1cdb3;
+				transition-duration: 0.3s;
+			}
+		}
+	}
+	&__content {
+		margin: 0 40px;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	&__text-content {
+		padding: 163px 40px 0 0;
+		flex: 0 1 41.9%;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 42px;
+	}
+	&__title {
+		font-family: "GeorgiaRegular";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 44px;
+		line-height: 130%;
+		color: #ffffff;
+	}
+	&__text {
+		font-family: "ArialRegular";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 15px;
+		line-height: 160%;
+		color: #cdcdcd;
+	}
+	&__button {
+		padding: 15px 45px;
+		border-radius: 30px;
+		background-color: #f1cdb3;
+		font-family: "GeorgiaRegular";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 17px;
+		color: #292929;
+		line-height: 130%;
+		letter-spacing: 0.06em;
+		transition-duration: 0.3s;
+		&:hover,
+		&:focus {
+			background-color: #fddcc4;
+		}
+	}
+	&__image-content {
+		flex: 0 0 58.1%;
+		width: 698px;
+		height: 728px;
+		background: url("../../image/start-screen-puppy.png") 0 0 / cover no-repeat;
+	}
+}
+
+.section-title {
+	font-family: "GeorgiaRegular";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 35px;
+	line-height: 130%;
+	letter-spacing: 0.06em;
+	color: #545454;
+}
+
+.about {
+	background-color: #fafafa;
+	&__content {
+		padding: $padding_about-how-you;
+		display: flex;
+		flex-wrap: wrap-reverse;
+	}
+	&__image-content {
+		flex: 0 0 49.6%;
+		width: 300px;
+		height: 408px;
+		background: url("../../image/about-pets.png") 59.5% 0 / auto 100% no-repeat;
+	}
+	&__text-content {
+		flex: 0 1 50.4%;
+		padding: 14px 0;
+		display: flex;
+		flex-direction: column;
+		gap: 25px;
+	}
+	&__text {
+		width: 430px;
+		height: auto;
+		font-family: "ArialRegular";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 15px;
+		line-height: 160%;
+		color: #4c4c4c;
+	}
+}
+
+.pets__cards-container-slider.change {
+	filter: opacity(0);
+}
+
+.pets {
+	background-color: #f6f6f6;
+	&__content {
+		padding: $padding_about-how-you;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	&__title {
+		text-align: center;
+	}
+	&__slider-container {
+		margin: 59px 0 60px 0;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		gap: 9px;
+	}
+	&__slider-button {
+		padding: 2px 15px 0px 15px;
+		width: 52px;
+		height: 52px;
+		font-size: 18px;
+		background-color: #f6f6f6;
+		border-radius: 50%;
+		border: 2px solid #f1cdb3;
+		align-self: center;
+		transition-duration: 0.3s;
+		&:hover,
+		&:focus {
+			background-color: #fddcc4;
+		}
+	}
+	&__cards-container {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		height: 485px;
+	}
+	&__cards-container-slider {
+		margin-top: 25px;
+		position: absolute;
+		width: 100%;
+		height: 485px;
+		top: 0;
+		left: 0;
+		display: flex;
+		justify-content: space-around;
+		transition-duration: 0.3s;
+		.pets-cardbox {
+			cursor: pointer;
+			background-color: #fafafa;
+			width: 270px;
+			height: 435px;
+			border-radius: 10px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 30px;
+			transition-duration: 0.3s;
+			&:hover,
+			&:focus {
+				transform: scale(1.1);
+				box-shadow: 0 0 15px #fddcc4;
+				.pets-cardbox__button {
+					background-color: #fddcc4;
+					&:hover,
+					&:focus {
+						background-color: #f1cdb3;
+					}
+				}
+			}
+			&__image-box {
+				width: 270px;
+				height: 270px;
+			}
+			&__name {
+				font-family: "GeorgiaRegular";
+				font-style: normal;
+				font-weight: 400;
+				font-size: 20px;
+				line-height: 23px;
+				letter-spacing: 0.06em;
+				color: #545454;
+			}
+			&__button {
+				background-color: #fafafa;
+				font-family: "GeorgiaRegular";
+				font-style: normal;
+				font-weight: 400;
+				font-size: 17px;
+				color: #292929;
+				line-height: 130%;
+				letter-spacing: 0.06em;
+				padding: 13px 43px;
+				border-radius: 30px;
+				border: 2px solid #f1cdb3;
+				transition-duration: 0.3s;
+			}
+		}
+	}
+	&__button {
+		padding: 15px 44px;
+		font-family: "GeorgiaRegular";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 17px;
+		line-height: 130%;
+		letter-spacing: 0.06em;
+		color: #292929;
+		background-color: #f1cdb3;
+		border-radius: 30px;
+		transition-duration: 0.3s;
+		&:hover,
+		&:focus {
+			background-color: #fddcc4;
+		}
+	}
+}
+
+.help {
+	background-color: #ffffff;
+	&__content {
+		padding: $padding_about-how-you;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	&__title {
+		text-align: center;
+	}
+	&__list {
+		padding: 58px 0 0 0;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		column-gap: 120px;
+		row-gap: 55px;
+	}
+	&__item {
+		width: auto;
+		height: 113px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 29px;
+	}
+	&__item-text {
+		font-family: "GeorgiaRegular";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 115%;
+		letter-spacing: 0.06em;
+		color: #545454;
+	}
+}
+
+.donation {
+	background-color: #f6f6f6;
+	&__content {
+		padding: $padding_about-how-you;
+		display: flex;
+		flex-wrap: wrap-reverse;
+	}
+	&__image-content {
+		margin-top: 10px;
+		width: 505px;
+		height: 261px;
+		background: url("../../image/donation-dog.png") 100% 100% / contain no-repeat;
+		flex: 0 1 54%;
+	}
+	&__text-content {
+		padding-left: 30px;
+		flex: 0 1 46%;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 20px;
+	}
+	&__subtitle {
+		font-family: "GeorgiaRegular";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 15px;
+		line-height: 110%;
+		letter-spacing: 0.06em;
+		color: #545454;
+	}
+	&__button {
+		background-color: #f1cdb3;
+		padding: 10px 15px;
+		border-radius: 10px;
+		transition-duration: 0.3s;
+		&:hover,
+		&:focus {
+			background-color: #fddcc4;
+		}
+	}
+	&__text {
+		width: 380px;
+		font-family: "ArialRegular";
+		font-style: italic;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 18px;
+		color: #b2b2b2;
+	}
+}
+
+.footer {
+	background: radial-gradient(100% 215.42% at 0% 0%, #513d2f 0%, #1a1a1c 100%), linear-gradient(0deg, #1a1a1c, #211f20);
+	&__content {
+		padding: 40px 40px 0 40px;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	&__contacts {
+		padding: 16px 120px 0 0;
+		flex: 0 1 36%;
+		display: flex;
+		flex-direction: column;
+		gap: 39px;
+	}
+	&__location {
+		padding: 16px 0 0 7px;
+		flex: 0 1 27%;
+		display: flex;
+		flex-direction: column;
+		gap: 33px;
+	}
+	&__title {
+		color: #ffffff;
+	}
+	&__list-contacts {
+		display: flex;
+		flex-direction: column;
+		gap: 37px;
+	}
+	&__list-location {
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+	}
+	&__item-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 20px;
+		transition-duration: 0.3s;
+		&:hover,
+		&:focus {
+			filter: opacity(0.65);
+		}
+	}
+	&__link-text {
+		font-family: "GeorgiaRegular";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 115%;
+		letter-spacing: 0.06em;
+		color: #f1cdb3;
+	}
+	&__image {
+		flex: 0 1 37%;
+		width: 300px;
+		height: 310px;
+		background: url("../../image/footer-puppy.png") 100% 100% / contain no-repeat;
+	}
+}
+
+.popup.active {
+	opacity: 1;
+	visibility: visible;
+}
+.popup {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+	left: 0;
+	opacity: 0;
+	visibility: hidden;
+	transition-duration: 0.8s;
+	&__body {
+		min-height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		&:hover {
+			.popup__close {
+				cursor: pointer;
+				background: #f1cdb3;
+			}
+		}
+	}
+
+	&__content {
+		cursor: default;
+		position: relative;
+		background: #ffffff;
+		border-radius: 10px;
+		width: 900px;
+		height: 500px;
+		color: #000000;
+		font-family: "GeorgiaRegular";
+		display: flex;
+		&:hover {
+			.popup__close {
+				background: #f1cdb300;
+				&:hover {
+					cursor: pointer;
+					background: #f1cdb3;
+				}
+			}
+		}
+	}
+
+	&__image {
+		width: 500px;
+		height: 500px;
+		border-radius: 0 0 0 10px;
+	}
+
+	&__box-about {
+		display: flex;
+		flex-direction: column;
+		padding: 50px 20px 0 29px;
+		gap: 5px;
+	}
+
+	&__title {
+		font-style: normal;
+		font-weight: 400;
+		font-size: 35px;
+		line-height: 130%;
+		letter-spacing: 0.06em;
+	}
+
+	&__subtitle {
+		font-style: normal;
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 115%;
+		letter-spacing: 0.06em;
+	}
+
+	&__about {
+		margin: 30px 0;
+		font-style: normal;
+		font-weight: 400;
+		font-size: 15px;
+		line-height: 110%;
+		letter-spacing: 0.06em;
+	}
+
+	&__about-list {
+		font-style: normal;
+		font-weight: 400;
+		font-size: 15px;
+		line-height: 110%;
+		letter-spacing: 0.06em;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		.about-item {
+			font-weight: 600;
+			&:before {
+				content: "";
+				width: 5px;
+				height: 5px;
+				border-radius: 50%;
+				margin: 0 10px 2px 0;
+				background: #f1cdb3;
+				display: inline-block;
+			}
+			&__span {
+				font-weight: 400;
+			}
+		}
+	}
+	&__close {
+		position: absolute;
+		top: -48px;
+		right: -48px;
+		width: 52px;
+		height: 52px;
+		border-radius: 50%;
+		border: 2px solid #f1cdb3;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 28px;
+		color: #000000;
+		padding-bottom: 3px;
+	}
+}
+
+//==========  768px <= width < 1280px  ==========//
+@media (max-width: 1279.5px) {
+	.wrapper {
+		max-width: 768px;
+	}
+
+	.start-screen {
+		.header {
+			height: 60px;
+			margin: 30px;
+		}
+		&__content {
+			margin: 0;
+			display: block;
+		}
+		&__text-content {
+			width: 460px;
+			margin: 0 auto;
+			padding: 30px 0 99px 0;
+		}
+		&__button {
+			margin: 0 auto;
+		}
+		&__image-content {
+			margin: 0 0 0 169px;
+			width: 569px;
+			height: 593px;
+		}
+	}
+
+	.section-title {
+		font-family: "GeorgiaRegular";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 35px;
+		line-height: 130%;
+		letter-spacing: 0.06em;
+		color: #545454;
+	}
+
+	.about {
+		&__content {
+			padding: 80px 62px 20px 0;
+		}
+		&__image-content {
+			margin: 80px auto;
+			flex: 0 1 90%;
+		}
+		&__text-content {
+			margin: 0 auto;
+			flex: 0 1 50%;
+			padding: 0 0 0 60px;
+			gap: 24px;
+		}
+	}
+
+	.pets {
+		&__content {
+			padding: 80px 30px 100px 30px;
+		}
+		&__slider-container {
+			gap: 0px;
+		}
+		&__cards-container {
+			gap: 10px;
+		}
+	}
+
+	.help {
+		background-color: #ffffff;
+		&__content {
+			padding: 80px 0 100px 0;
+		}
+		&__list {
+			padding: 58px 0 0 0;
+			column-gap: 0px;
+			row-gap: 55px;
+		}
+		&__item {
+			flex: 0 0 30%;
+		}
+	}
+
+	.donation {
+		&__content {
+			padding: 80px 0 100px 0;
+		}
+		&__image-content {
+			margin: 60px 132px 0 auto;
+			flex: 0 1 90%;
+		}
+		&__text-content {
+			padding-left: 193px;
+			flex: 0 1 100%;
+		}
+	}
+
+	.footer {
+		&__content {
+			padding: 30px 30px 0 30px;
+		}
+		&__title {
+			color: #ffffff;
+		}
+		&__contacts {
+			padding: 0 10px 0 33px;
+			flex: 0 1 50%;
+		}
+		&__location {
+			padding: 0 20px 0 18px;
+			flex: 0 1 50%;
+		}
+		&__image {
+			margin: 64px 205px 0 0;
+			flex: 0 1 100%;
+			width: 300px;
+			height: 310px;
+		}
+	}
+	.popup {
+		&__content {
+			width: 630px;
+			height: 350px;
+		}
+		&__image {
+			width: 350px;
+			height: 350px;
+		}
+		&__box-about {
+			padding: 10px 9px 0 11px;
+			gap: 5px;
+		}
+		&__about {
+			margin: 15px 0;
+			font-style: normal;
+			font-weight: 400;
+			font-size: 13px;
+			line-height: 110%;
+			letter-spacing: 0.06em;
+		}
+		&__about-list {
+			gap: 5px;
+		}
+	}
+}
+
+//==========  375px <= width < 768px  ==========//
+@media (max-width: 767.5px) {
+	.wrapper {
+		max-width: 375px;
+	}
+
+	.start-screen {
+		.header {
+			height: 60px;
+			margin: 30px 53px 30px 65px;
+			&__logo {
+				z-index: 7;
+			}
+			&__nav-menu {
+				position: fixed;
+				top: 0;
+				right: -100%;
+				display: flex;
+				width: 100%;
+				height: 100vh;
+				background: rgba(41, 41, 41, 0.6);
+				z-index: 6;
+				transition-duration: 0.3s;
+				display: flex;
+				justify-content: flex-end;
+			}
+			&__list {
+				width: 320px;
+				height: 100%;
+				background: #292929;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				gap: 40px;
+			}
+			&__item-link {
+				font-family: "ArialRegular";
+				font-style: normal;
+				font-weight: 400;
+				font-size: 32px;
+				line-height: 160%;
+				color: #cdcdcd;
+				margin: 10px 0px;
+				padding: 5px 0;
+				transition-duration: 0.3s;
+				&:hover,
+				&:focus {
+					color: #fafafa;
+				}
+			}
+			&__menu {
+				z-index: 7;
+				display: flex;
+				flex-direction: column;
+				gap: 8px;
+				cursor: pointer;
+				transition-duration: 0.3s;
+				&:hover,
+				&:focus {
+					.menu-item {
+						filter: opacity(0.6);
+					}
+				}
+			}
+		}
+		&__text-content {
+			width: 100%;
+			margin: 0 auto;
+			align-items: center;
+			padding: 14px 20px 104px 20px;
+		}
+		&__title {
+			text-align: center;
+			font-family: "GeorgiaRegular";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 25px;
+			line-height: 130%;
+			letter-spacing: 0.06em;
+			color: #ffffff;
+		}
+		&__text {
+			text-align: center;
+		}
+		&__image-content {
+			margin: 0 0 0 50px;
+			width: 260px;
+			height: 271.77px;
+		}
+	}
+
+	.start-screen .header__nav-menu.active {
+		right: 0;
+	}
+	.start-screen .header__menu.active {
+		transform: rotate(90deg);
+	}
+
+	.section-title {
+		text-align: center;
+		font-family: "GeorgiaRegular";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 25px;
+		line-height: 130%;
+		letter-spacing: 0.06em;
+		color: #545454;
+	}
+
+	.about {
+		&__content {
+			padding: 42px 10px 42px 10px;
+		}
+		&__image-content {
+			width: 260px;
+			height: 353.6px;
+			margin: 40px 6px 0 0;
+			flex: 0 1 100%;
+		}
+		&__text-content {
+			margin: 0 auto;
+			padding: 0 15px;
+			flex: 0 1 100%;
+			gap: 24px;
+		}
+		&__text {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			text-align: justify;
+		}
+	}
+
+	.pets {
+		&__content {
+			padding: 42px 10px 42px 10px;
+		}
+		&__slider-container {
+			margin: 40px 0 42px 0;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 20px;
+		}
+		&__left-button {
+			order: 2;
+			margin-left: 58px;
+		}
+		&__right-button {
+			order: 3;
+			margin-right: 58px;
+		}
+		&__cards-container {
+			order: 1;
+			gap: 10px;
+		}
+	}
+
+	.help {
+		background-color: #ffffff;
+		&__content {
+			padding: 42px 0px 18px 0px;
+		}
+		&__list {
+			padding: 40px 0 0 0;
+			justify-content: flex-start;
+			column-gap: 0;
+			row-gap: 4px;
+		}
+		&__item {
+			flex: 0 0 50%;
+			gap: 22px;
+		}
+		&__item-icon {
+			img {
+				width: 50px;
+				height: 50px;
+			}
+		}
+		&__item-text {
+			font-family: "GeorgiaRegular";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 15px;
+			line-height: 110%;
+			letter-spacing: 0.06em;
+			color: #545454;
+		}
+	}
+
+	.donation {
+		&__content {
+			padding: 42px 17px 41px 17px;
+		}
+		&__image-content {
+			margin: 43px 12px 0 0;
+			width: 260px;
+			height: 136px;
+			flex: 0 1 100%;
+		}
+		&__text-content {
+			padding: 0px;
+			flex: 0 1 100%;
+			align-items: center;
+			gap: 19px;
+		}
+		&__subtitle {
+			text-align: center;
+			font-family: "GeorgiaRegular";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 15px;
+			line-height: 160%;
+			letter-spacing: 0em;
+			color: #545454;
+		}
+		&__button-img {
+			width: 251px;
+			height: 23px;
+		}
+		&__text {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			text-align: justify;
+			font-family: "ArialRegular";
+			font-style: italic;
+			font-weight: 400;
+			font-size: 12px;
+			line-height: 18px;
+			color: #b2b2b2;
+		}
+	}
+
+	.footer {
+		&__content {
+			padding: 30px 10px 0 10px;
+			gap: 39px;
+		}
+		&__title {
+			padding: 0 5px;
+			color: #ffffff;
+		}
+
+		&__contacts {
+			padding: 0;
+			flex: 0 1 100%;
+		}
+		&__list-contacts {
+			padding: 0 0 0 26px;
+		}
+		&__location {
+			padding: 0;
+			flex: 0 1 100%;
+			gap: 38px;
+		}
+		&__item {
+			margin-top: 1px;
+		}
+		&__image {
+			margin: 3px 20px 0 0;
+			flex: 0 1 100%;
+			width: 260px;
+			height: 269px;
+		}
+	}
+	.popup {
+		&__content {
+			width: 240px;
+			height: 341px;
+		}
+		&__image {
+			display: none;
+		}
+		&__box-about {
+			padding: 8px;
+			gap: 0;
+			justify-content: space-between;
+		}
+		&__title,
+		&__subtitle {
+			text-align: center;
+		}
+		&__about {
+			margin: 0 auto;
+			text-align: justify;
+			font-style: normal;
+			font-weight: 400;
+			font-size: 13px;
+			line-height: 110%;
+			letter-spacing: 0.06em;
+		}
+		&__about-list {
+			padding: 0 0 0 5px;
+			gap: 4px;
+		}
+	}
+}
+
+//==========  320px <= width < 375px  ==========//
+@media (max-width: 374.5px) {
+	.wrapper {
+		max-width: 320px;
+	}
+	.start-screen {
+		.header {
+			margin: 30px 53px 30px 10px;
+		}
+		&__text-content {
+			padding: 14px 8px 104px 8px;
+		}
+	}
+}
