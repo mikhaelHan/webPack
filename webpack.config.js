@@ -11,7 +11,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
 	mode: mode,
-	entry: path.resolve(__dirname, 'src', 'main', 'index.js'),
+	entry: ['@babel/polyfill', path.resolve(__dirname, 'src', 'script.js')],
 	output: {
 		filename: path.resolve(__dirname, 'dist'),
 		clean: true,
@@ -19,7 +19,7 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: path.resolve(__dirname, 'src', 'main', 'index.html')
+			template: path.resolve(__dirname, 'src', 'index.html')
 		}),
 		new MiniCssExtractPlugin({
 			filename: 'style.css',
@@ -29,11 +29,41 @@ module.exports = {
 		rules: [
 			{
 				test: /\.html$/i,
-				loader: "html-loader",
+				loader: 'html-loader',
 			},
 			{
-				test: /\.css$/i,
-				use: [MiniCssExtractPlugin.loader, "css-loader"],
+				test: /\.(c|sa|sc)ss$/i,
+				use: [
+					MiniCssExtractPlugin.loader,
+					'css-loader',
+					{
+						loader: 'postcss-loader',
+						options: {
+							postcssOptions: {
+								plugins: [require('postcss-preset-env')],
+							}
+						}
+					},
+					'sass-loader'
+				],
+			},
+			{
+				test: /\.m?js$/,
+				exclude: /(node_modules|bower_components)/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env']
+					}
+				}
+			},
+			{
+				test: /\.(woff|woff2|eot|ttf|otf)$/i,
+				type: 'asset/resource',
+			},
+			{
+				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+				type: 'asset/resource',
 			},
 		],
 	},
