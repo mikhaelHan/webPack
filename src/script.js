@@ -1,49 +1,36 @@
-console.log('Все пункты выполнены, кроме предпоследнего: -выбранный пользователем язык отображения страницы и светлая или тёмная тема сохраняются при перезагрузке страницы.\n85 - 5 = 80 баллов \n\nTotal score: 75.')
-
-//====================================================================
-
 import './index.html';
 import './style.scss';
-
 //====================================================================
-
 import winter_1 from './assets/img/winter/1.jpg';
 import winter_2 from './assets/img/winter/2.jpg';
 import winter_3 from './assets/img/winter/3.jpg';
 import winter_4 from './assets/img/winter/4.jpg';
 import winter_5 from './assets/img/winter/5.jpg';
 import winter_6 from './assets/img/winter/6.jpg';
-
 import summer_1 from './assets/img/summer/1.jpg';
 import summer_2 from './assets/img/summer/2.jpg';
 import summer_3 from './assets/img/summer/3.jpg';
 import summer_4 from './assets/img/summer/4.jpg';
 import summer_5 from './assets/img/summer/5.jpg';
 import summer_6 from './assets/img/summer/6.jpg';
-
 import spring_1 from './assets/img/spring/1.jpg';
 import spring_2 from './assets/img/spring/2.jpg';
 import spring_3 from './assets/img/spring/3.jpg';
 import spring_4 from './assets/img/spring/4.jpg';
 import spring_5 from './assets/img/spring/5.jpg';
 import spring_6 from './assets/img/spring/6.jpg';
-
 import autumn_1 from './assets/img/autumn/1.jpg';
 import autumn_2 from './assets/img/autumn/2.jpg';
 import autumn_3 from './assets/img/autumn/3.jpg';
 import autumn_4 from './assets/img/autumn/4.jpg';
 import autumn_5 from './assets/img/autumn/5.jpg';
 import autumn_6 from './assets/img/autumn/6.jpg';
-
-
-
 const seasons = {
 	'winter': [winter_1, winter_2, winter_3, winter_4, winter_5, winter_6],
 	'summer': [summer_1, summer_2, summer_3, summer_4, summer_5, summer_6],
 	'spring': [spring_1, spring_2, spring_3, spring_4, spring_5, spring_6],
 	'autumn': [autumn_1, autumn_2, autumn_3, autumn_4, autumn_5, autumn_6]
 };
-
 //====================================================================
 /* declaring and getting constants*/
 //for menu-burger
@@ -172,32 +159,39 @@ function changeLanguage(event) {
 ruen.addEventListener('click', changeLanguage);
 
 /* change images */
-function changeImage(event) {
-	let seasonClick;
-	event === undefined ? seasonClick = 'autumn' : seasonClick = event.target.dataset.season;
+function fill(seas) {
 	let count = 0;
 	portfolioItems.forEach((el) => {
 		el.innerHTML = '';
 		const portfolioImage = new Image();
-		portfolioImage.src = seasons[seasonClick][count];
-		portfolioImage.alt = `${seasonClick}_${count}`;
+		portfolioImage.src = seasons[seas][count];
+		portfolioImage.alt = `${seas}_${count}`;
 		portfolioImage.classList.add('section-portfolio__image');
 		el.appendChild(portfolioImage);
 		count++;
 	});
-	portfolioButton.forEach((button) => button.classList.remove('button-activ'));
-	event.target.classList.add('button-activ');
+}
 
+function changeImage(event) {
+	portfolioButton.forEach((button) => button.classList.remove('button-activ'));
+	if (event === undefined) {
+		portfolioButton[3].classList.add('button-activ');
+		fill('autumn');
+	}
+	else {
+		event.target.classList.add('button-activ');
+		fill(event.target.dataset.season);
+	}
 }
 portfolioButtons.addEventListener('click', changeImage);
 changeImage();
 
 /* open menu-burger */
-menuBurger.onclick = () => {
+menuBurger.addEventListener('click', () => {
 	menuBurger.classList.toggle('active');
 	navigation.classList.toggle('active');
 	body.classList.toggle('lock');
-}
+})
 
 /* close menu when link is clicked */
 menuBurgerLink.forEach((el) => el.addEventListener('click', closeMenu));
@@ -233,5 +227,4 @@ function toggleColors() {
 		initialTheme = true;
 	}
 }
-
 buttonChangeBg.addEventListener('click', toggleColors)
